@@ -1,0 +1,24 @@
+{
+  "name": "@brrock/simpleserve",
+  "version": "1.0.0",
+  "type": "module",
+  "private": false,
+  "module": "index.ts",
+  "bin": {
+    "simpleserve": "bin/simpleserve"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@types/node": "^22.10.2",
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "hono": "^4.6.14"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
