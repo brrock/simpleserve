@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 
 import { Hono } from 'hono'
-import { serve } from '@hono/node-server'
+import { serve as serveNode} from '@hono/node-server'
 import { serveStatic } from '@hono/node-server/serve-static'
 import { logger } from 'hono/logger'
 import chalk from 'chalk'
 import { Command } from 'commander'
-
 const program = new Command()
-
 program
   .name('simpleserve')
   .description('Simple static file server using Hono')
@@ -18,7 +16,7 @@ program
   .parse(process.argv)
 
 const options = program.opts()
-const port = parseInt(options.port)
+const port = Number.parseInt(options.port)
 const directory = options.dir
 
 const app = new Hono()
@@ -35,11 +33,11 @@ app.notFound((c) => {
 })
 
 // Start the server
-serve({
+serveNode({
   fetch: app.fetch,
   port
 }, () => {
-  console.log(chalk.green(`\n🚀 Server started!`))
+  console.log(chalk.green("\n🚀 Server started!"))
   console.log(chalk.blue(`\n📁 Serving directory: ${chalk.yellow(directory)}`))
   console.log(chalk.blue(`🔗 Local: ${chalk.yellow(`http://localhost:${port}`)}\n`))
 })
