@@ -10,7 +10,7 @@ const program = new Command()
 program
   .name('simpleserve')
   .description('Simple static file server using Hono')
-  .version('1.0.0')
+  .version('1.4.0')
   .option('-p, --port <number>', 'port to serve on', '3000')
   .option('-d, --dir <string>', 'directory to serve', '.')
   .parse(process.argv)
